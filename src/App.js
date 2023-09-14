@@ -8,7 +8,7 @@ function App() {
     <div className='wrapper'>
       <Header />
       <Navbar />
-      <Profile />
+      <Profile/>
     </div>
   );
 }
