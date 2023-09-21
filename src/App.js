@@ -8,18 +8,18 @@ import Dialogs from './components/dialogs/dialogs.jsx'
 
 
 
+
 function App() {
   return (
     <div className='wrapper'>
       <BrowserRouter>
-      <Header />
-      <Navbar />
-      <Switch>
-        <Route exact path='/' component={Profile} />
-        <Route exact path="/profile" component={Profile}/>
-        <Route exact path='/dialogs' component={Dialogs}/>
-
-      </Switch>
+        <Header />
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Profile} />
+          <Route exact path="/profile" component={Profile}/>
+          <Route exact path='/dialogs' component={Dialogs}/>
+        </Switch>
       </BrowserRouter>
     </div>
   );

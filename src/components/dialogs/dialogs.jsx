@@ -1,21 +1,31 @@
 import React from 'react'
 import './dialogs.css'
-import {NavLink} from 'react-router-dom'
 import Message from './message/message.jsx'
 import DialogsItem from './dialogsItem/dialogsItem'
-function Dialogs() {
+
+let dialogNames = [
+  {name:'Ivan Ivanov', id: 1},
+  {name:'Ilon Mask', id: 2},
+  {name:'Bill Gates', id: 3}
+]
+let messageItems = [
+  {message:'Hi!', id: 1},
+  {message:'Go on the Mars', id: 1},
+  {message:'Where is my chip?', id: 1}
+]
+
+
+function Dialogs(props) {
     return (
         <div className="dialogs">
             <div className='dialog'>
-              <DialogsItem name={'Иван Иванов'} id={'1'} />
-              <DialogsItem name={'Илон Маск'} id={'2'}/>
-              <DialogsItem name={'Билл Гейтс'} id={'3'}/>
+              {dialogNames.map((e)=>
+                  <DialogsItem name = {e.name} id={e.id}/>)}
             </div>
 
             <div className="messages">
-                  <Message message={'Привет'}/>
-                  <Message message={'Го на Марс'}/>
-                  <Message message={'Где мой чип?'}/>
+                {messageItems.map((e)=>
+                  <Message message = {e.message} id={e.id}/>)}
             </div>
             <div className="code">
                 <input type="text"/>
