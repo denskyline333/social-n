@@ -9,16 +9,16 @@ import Dialogs from './components/dialogs/dialogs.jsx'
 
 
 
-function App() {
+function App(props) {
   return (
     <div className='wrapper'>
       <BrowserRouter>
         <Header />
-        <Navbar />
+        <Navbar friends={props.state.friends}/>
         <Switch>
-          <Route exact path='/' component={Profile} />
-          <Route exact path="/profile" component={Profile}/>
-          <Route exact path='/dialogs' component={Dialogs}/>
+          <Route exact path='/' render={()=> <Profile postsItems = {props.state.postsItems} addPost={props.addPost} newPostText={props.state.newPostText} onPostChange={props.onPostChange}/>} />
+          <Route exact path="/profile" render={()=> <Profile postsItems = {props.state.postsItems} addPost={props.addPost} newPostText={props.state.newPostText} onPostChange={props.onPostChange}/>}/>
+          <Route exact path='/dialogs' render={()=> <Dialogs dialogNames={props.state.dialogNames} messageItems={props.state.messageItems} sendMessage={props.sendMessage} onMessageChange={props.onMessageChange} newMessageText={props.state.newMessageText} />}/>
         </Switch>
       </BrowserRouter>
     </div>
